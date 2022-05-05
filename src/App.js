@@ -1,6 +1,6 @@
 import logo from './modules/assets/logo.jpg';
 import './App.css';
-import GetSheets from './modules/components/GetSheets';
+import GetSheetsContainer from './modules/components/Get-Sheets-Container';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <GetSheets />
+      <GetSheetsContainer />
     </div>
   );
 }

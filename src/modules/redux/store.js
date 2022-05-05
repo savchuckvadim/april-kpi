@@ -11,7 +11,8 @@ const reducers = combineReducers({
     
     sheets: sheetsReducer
 })
-debugger
+
 let store = configureStore({reducer: reducers}, applyMiddleware(ThunkMiddleware));
 export default store;
 
+window.store = store
