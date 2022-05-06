@@ -4,6 +4,7 @@ import {
 } from "react-redux"
 import React from "react"
 import { getAllSheets } from "../redux/sheets-reducer"
+import CustomPaginationActionsTable from "./Table/Table.jsx"
 const mapStateToProps = (state) => {
 
     return {
@@ -18,6 +19,7 @@ class GetSheetsContainer extends React.Component{
     render(){
         return(
             <GetSheets sheets={this.props.sheets}/>
+            // <CustomPaginationActionsTable sheets={this.props.sheets}/>
         )
     }
 }

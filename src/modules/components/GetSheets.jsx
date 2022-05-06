@@ -12,6 +12,7 @@ import './Get-Sheets.css'
 
 
 
+
 const GetSheets = (props) => {
     let rows = props.sheets
     let dates = props.sheets.map(sheet => {
@@ -54,8 +55,9 @@ const GetSheets = (props) => {
                     {rows.map((row, index) => (
 
                         <TableRow
+                            className="table-row"
                             key={`${row.date}-${index}`}
-                            sx={{ '&:children td, &:children th': { border: 0.5 } }}
+                            sx={{ '&:children td, &:children th': { border: 0.5, height: '5px '} }}
 
                         >
                             <TableCell sx={{ border: 'solid', border: 0.5 }} component="th" scope="row">
@@ -63,13 +65,13 @@ const GetSheets = (props) => {
                                 {dates[index]}
                             </TableCell>
                             {/* <TableCell align="right">{row.date}</TableCell> */}
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.manager}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.numberSets}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.callsOverThirdSek}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.appointment}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.carried}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.checks}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right">{row.sales}</TableCell>
+                            <TableCell  sx={{ border: 'solid', border: 0.5}}  align="right">{row.manager}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.numberSets}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.callsOverThirdSek}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.appointment}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.carried}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.checks}</TableCell>
+                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.sales}</TableCell>
 
                         </TableRow>
                     ))}

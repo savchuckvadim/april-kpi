@@ -1,3 +1,4 @@
 .table-row{
-    position: sticky
+    position: sticky;
+    max-height: 1px !important;
 }

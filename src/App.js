@@ -8,7 +8,10 @@ function App() {
   return (
     <div className="App">
      <Header/>
-      <GetSheetsContainer />
+     <div className='table__container'>
+     <GetSheetsContainer />
+     </div>
+    
       {/* <BasicTable /> */}
     </div>
   );
