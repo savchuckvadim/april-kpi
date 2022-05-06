@@ -1,5 +1,7 @@
 
 import logo from '../../assets/logo.jpg';
+import '../../../App.css';
+
 const Header = () => {
 
     return (
