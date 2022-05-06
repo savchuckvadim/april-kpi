@@ -4,12 +4,14 @@ import {
 } from "redux";
 
 import ThunkMiddleware from 'redux-thunk';
-import sheetsReducer from "./sheets-reducer";
+import sheetsReducer from "./reducers/sheets-reducer";
 import { configureStore } from '@reduxjs/toolkit'
+import filterManagerReducer from "./reducers/current-manager-reducer";
 
 const reducers = combineReducers({
     
-    sheets: sheetsReducer
+    sheets: sheetsReducer,
+    currentManager: filterManagerReducer
 })
 
 let store = configureStore({reducer: reducers}, applyMiddleware(ThunkMiddleware));

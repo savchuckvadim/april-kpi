@@ -14,8 +14,12 @@ import './Get-Sheets.css'
 
 
 const GetSheets = (props) => {
-    let rows = props.sheets
-    let dates = props.sheets.map(sheet => {
+   
+    let rows = props.allRows
+    if(props.currentManager){
+        console.log(props.currentManager)
+    }
+    let dates = props.allRows.map(sheet => {
         let date = sheet.date.slice(5, 10)
         let year = `${date[0]}${date[1]}${date[2]}${date[3]}`
         let day = `${date[8]}${date[9]}`
@@ -25,30 +29,22 @@ const GetSheets = (props) => {
         // `${month}.${day}`
         return date
     })
-    // componentDidMount() {
-    //     // getAllSheets()
 
-    //     this.names = this.props.sheets.map(data => (data.manager))
-
-    // }
-    // componentDidUpdate(){
-    //     this.names = this.props.sheets.map(data => (data.manager))
-    // }
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 10 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow className="table-row">
-                        <TableCell align="left" >Дата</TableCell>
-                        <TableCell align="right">Менеджеры</TableCell>
-                        <TableCell align="right">наборов номера</TableCell>
-                        <TableCell align="right">звонки 30 сек. и более</TableCell>
-                        <TableCell align="right">назначенных презентаций</TableCell>
-                        <TableCell align="right">проведенных презентаций</TableCell>
-                        <TableCell align="right">счета</TableCell>
-                        <TableCell align="right">продажи</TableCell>
-
+            <Table className="table" sx={{ minWidth: 10 }} aria-label="simple table">
+                <TableHead className="table-head">
+                    <TableRow >
+                        <TableCell className="table-head-item" align="left" >Дата</TableCell>
+                        <TableCell className="table-head-item" align="right">Менеджеры</TableCell>
+                        <TableCell className="table-head-item" align="right">наборов номера</TableCell>
+                        <TableCell className="table-head-item" align="right">звонки 30 сек. и более</TableCell>
+                        <TableCell className="table-head-item" align="right">назначенных презентаций</TableCell>
+                        <TableCell className="table-head-item" align="right">проведенных презентаций</TableCell>
+                        <TableCell className="table-head-item" align="right">счета</TableCell>
+                        <TableCell className="table-head-item" align="right">продажи</TableCell>
+ 
                     </TableRow>
                 </TableHead>
                 <TableBody>
