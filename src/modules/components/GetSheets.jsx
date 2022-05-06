@@ -11,23 +11,19 @@ import Paper from '@mui/material/Paper';
 
 
 
-// const getingRows = (id = 0) => {
-//     let b = id
-//     let a = getAllRows(b)
-//     if (a || a.length !== 0) {
-//         debugger
-//         console.log(a)
-//         b++
-//         // getingRows(b++)
-//     } else {
-//         console.log('null')
-//         return
-//     }
-
-// }
 
 const GetSheets =(props) => {
     let rows = props.sheets
+    let dates = props.sheets.map(sheet => {
+        let date = sheet.date.slice(0, 10)
+        let year = `${date[0]}${date[1]}${date[2]}${date[3]}`
+        let day = `${date[8]}${date[9]}`
+        let month = `${date[5]}${date[6]}`
+      
+        let result = `${day}-${month}-${year}`
+        // `${month}.${day}`
+        return result
+    })
     // componentDidMount() {
     //     // getAllSheets()
         
@@ -55,13 +51,16 @@ const GetSheets =(props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
+              
             <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={`${row.date}-${index}`}
+              sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
+              
             >
               <TableCell component="th" scope="row">
-              {row.date}
+                 
+              {dates[index]}
               </TableCell>
               {/* <TableCell align="right">{row.date}</TableCell> */}
               <TableCell align="right">{row.manager}</TableCell>
