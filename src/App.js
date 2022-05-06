@@ -1,7 +1,7 @@
 
 import './App.css';
 import GetSheetsContainer from './modules/components/Get-Sheets-Container';
-import BasicTable from './modules/components/Table/Table';
+// import BasicTable from './modules/components/Table/Table';
 import Header from './modules/components/Header/Header';
 
 function App() {
