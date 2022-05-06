@@ -15,14 +15,14 @@ import Paper from '@mui/material/Paper';
 const GetSheets =(props) => {
     let rows = props.sheets
     let dates = props.sheets.map(sheet => {
-        let date = sheet.date.slice(0, 10)
+        let date = sheet.date.slice(5, 10)
         let year = `${date[0]}${date[1]}${date[2]}${date[3]}`
         let day = `${date[8]}${date[9]}`
         let month = `${date[5]}${date[6]}`
       
         let result = `${day}-${month}-${year}`
         // `${month}.${day}`
-        return result
+        return date
     })
     // componentDidMount() {
     //     // getAllSheets()
@@ -36,10 +36,10 @@ const GetSheets =(props) => {
   
         return (
             <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 150 }} aria-label="simple table">
+            <Table sx={{ minWidth: 10 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell  >Дата</TableCell>
+          <TableRow className="table-row">
+            <TableCell align="left" >Дата</TableCell>
             <TableCell align="right">Менеджеры</TableCell>
             <TableCell align="right">наборов номера</TableCell>
             <TableCell align="right">звонки 30 сек. и более</TableCell>
@@ -55,7 +55,7 @@ const GetSheets =(props) => {
               
             <TableRow
               key={`${row.date}-${index}`}
-              sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
+              sx={{ '&:children td, &:children th': { border: 0.5 } }}
               
             >
               <TableCell component="th" scope="row">
@@ -63,13 +63,13 @@ const GetSheets =(props) => {
               {dates[index]}
               </TableCell>
               {/* <TableCell align="right">{row.date}</TableCell> */}
-              <TableCell align="right">{row.manager}</TableCell>
-              <TableCell align="right">{row.numberSets}</TableCell>
-              <TableCell align="right">{row.callsOverThirdSek}</TableCell>
-              <TableCell align="right">{row.appointment}</TableCell>
-              <TableCell align="right">{row.carried}</TableCell>
-              <TableCell align="right">{row.checks}</TableCell>
-              <TableCell align="right">{row.sales}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.manager}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.numberSets}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.callsOverThirdSek}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.appointment}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.carried}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.checks}</TableCell>
+              <TableCell sx={{border:'solid', border:0.5}} align="right">{row.sales}</TableCell>
 
             </TableRow>
           ))}
