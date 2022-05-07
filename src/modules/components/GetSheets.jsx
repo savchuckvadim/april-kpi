@@ -16,18 +16,9 @@ import './Get-Sheets.css'
 const GetSheets = (props) => {
    
     let rows = props.allRows
-    if(props.currentManager){
-        console.log(props.currentManager)
-    }
-    let dates = props.allRows.map(sheet => {
-        let date = sheet.date.toLocaleDateString()
-        // let year = `${date[0]}${date[1]}${date[2]}${date[3]}`
-        // let day = `${date[8]}${date[9]}`
-        // let month = `${date[5]}${date[6]}`
 
-        // let result = `${day}-${month}-${year}`
-        // `${month}.${day}`
-       
+    let dates = props.allRows.map(sheet => {
+        let date = sheet.date.toLocaleDateString()      
         return date
         
     })

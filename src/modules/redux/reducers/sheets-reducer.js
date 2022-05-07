@@ -82,15 +82,9 @@ const sheetsReducer = (state = initialState, action) => {
                 result = {
                     ...state
                 }
-                result.showRows = []
-                result.allRows.forEach(row => {
-
-                    if (row.manager === action.manager) {
-                        result.showRows.push(row)
-                    }
-                })
-
+                result.showRows = result.allRows.filter(row => row.manager === action.manager)
                 result.currentManager = action.manager 
+
             } else {
                 result.showRows = result.allRows
             }
@@ -101,12 +95,10 @@ const sheetsReducer = (state = initialState, action) => {
             result = {
                 ...state
             }
-            debugger
-            if(state.currentManager){
-
-            }
-            result.showRows = state.showRows.filter(row => row.date > new Date(action.date))
          
+            
+            result.showRows = state.showRows.filter(row => row.date > new Date(action.date))
+            result.dateFrom = new Date(action.date)
             return result
 
 

@@ -19,7 +19,8 @@ const Date = (props) => {
           value={value1}
           onChange={(newValue) => {
             setValue1(newValue);
-            props.changeDateFrom(newValue)
+            
+            props.changeDateFrom(newValue, props.currentManager)
           }}
           renderInput={(params) => <TextField {...params} />}
         />
