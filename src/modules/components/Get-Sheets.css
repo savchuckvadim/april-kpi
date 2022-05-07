@@ -1,14 +1,20 @@
 
 .table-head {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 0px !important;
-    background-color: #282c34;
+    /* position: -webkit-sticky !important;
+    position: sticky !important; */
+    /* top: 0px !important; 
+     background-color: #282c34;
+    min-width: 100%;
+    border: none !important;
     
-    /* max-height: 1px !important; */
+    max-height: 1px !important; */
 }
 
-.table-head-item{
-    color: white !important;
+.table-head-item, .table-item{
+ 
+    height: 40px !important;
+    width: 150px !important;
+    text-align: start !important;
+    padding: 0 12px  !important;
    
 }

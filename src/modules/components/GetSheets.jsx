@@ -53,21 +53,18 @@ const GetSheets = (props) => {
                         <TableRow
                             className="table-row"
                             key={`${row.date}-${index}`}
-                            sx={{ '&:children td, &:children th': { border: 0.5, height: '5px '} }}
+                            sx={{ '&:children td, &:children th': { border: 0.5} }}
 
                         >
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} component="th" scope="row">
-
-                                {dates[index]}
-                            </TableCell>
+                            <TableCell  className="table-item" sx={{ border: 0.5 }} component="th" scope="row">{dates[index]}</TableCell>
                             {/* <TableCell align="right">{row.date}</TableCell> */}
-                            <TableCell  sx={{ border: 'solid', border: 0.5}}  align="right">{row.manager}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.numberSets}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.callsOverThirdSek}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.appointment}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.carried}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.checks}</TableCell>
-                            <TableCell sx={{ border: 'solid', border: 0.5 }} align="right"> {row.sales}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5}}  align="right">{row.manager}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.numberSets}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.callsOverThirdSek}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.appointment}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.carried}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.checks}</TableCell>
+                            <TableCell className="table-item" sx={{ border: 0.5 }} align="right"> {row.sales}</TableCell>
 
                         </TableRow>
                     ))}

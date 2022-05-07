@@ -1,0 +1,19 @@
+.total-table{
+    position: sticky !important;
+    bottom: 0 !important;
+    background-color: rgb(43, 36, 83) !important;
+    color: white !important;
+    max-height: 110px;
+}
+
+.total-table-head-item{
+    height: 30px !important;
+    width: 150px !important;
+    /* overflow: visible; */
+    text-align: start !important;
+    padding: 0 12px  !important;
+
+}
+.total-table-head-item{
+    color: white !important;
+}
