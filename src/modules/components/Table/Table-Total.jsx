@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import './Table-Total.css'
 const TableTotal = (props) => {
-    let rows = props.showRows
+    
     let dates = props.dates
     let managers = props.managers
     let numberSets = props.numberSets

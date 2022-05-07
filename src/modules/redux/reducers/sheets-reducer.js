@@ -5,10 +5,18 @@ import {
 const ALL_SHEETS = 'ALL_SHEETS'
 const SET_MANAGERS = 'SET_MANAGERS'
 const CHANGE_MANAGER = 'CHANGE_MANAGER';
+
+const CHANGE_DATE_FROM = 'CHANGE_DATE_FROM'
+
+const CHANGE_DATE_TO = 'CHANGE_DATE_TO'
+
+
+
 let initialState = {
     allRows: [],
     showRows: [],
-    managers: []
+    managers: [],
+    dateFrom: ''
 }
 
 const setAllSheets = (allRows) => {
@@ -25,7 +33,13 @@ const setManagers = (managers) => {
         managers: managers
     }
 }
+export const changeDateFrom = (date) => {
 
+    return{
+        type: CHANGE_DATE_FROM,
+        date
+    }
+}
 const sheetsReducer = (state = initialState, action) => {
 
     let result = state
@@ -37,7 +51,6 @@ const sheetsReducer = (state = initialState, action) => {
             result.allRows = action.allRows
             result.showRows = action.allRows
             return result
-
         case SET_MANAGERS:
             result = {
                 ...state
@@ -45,7 +58,7 @@ const sheetsReducer = (state = initialState, action) => {
             result.managers = action.managers
             return result
         case CHANGE_MANAGER:
-            
+
             if (action.manager) {
                 result = {
                     ...state
@@ -53,17 +66,24 @@ const sheetsReducer = (state = initialState, action) => {
                 result.showRows = []
                 result.allRows.forEach(row => {
 
-                    if (row.manager === action.manager){
+                    if (row.manager === action.manager) {
                         result.showRows.push(row)
                     }
                 })
-                debugger
+
             } else {
                 result.showRows = result.allRows
             }
 
             return result
 
+        case CHANGE_DATE_FROM:
+            result = {
+                ...state
+            }
+            result.showRows = state.showRows.filter(row => row.date > action.date)
+            debugger
+            return result
 
 
         default:

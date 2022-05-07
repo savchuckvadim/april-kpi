@@ -1,0 +1,13 @@
+.date-from, .date-to {
+    margin-right: 5px !important;
+}
+
+.date__container {
+    margin-right: 10px;
+    width: 527px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}

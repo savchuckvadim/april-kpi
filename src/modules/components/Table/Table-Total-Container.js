@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
         по ${rows[rows.length - 1].date.slice(5, 10)} ${rows[rows.length - 1].date.slice(0, 4)}`
 
         managers = [...new Set(rows.map(row => (row.manager)))].join(', ')
-debugger
+
         rows.forEach(row => {
             numberSets += Number(row.numberSets)
             callsOverThirdSek += Number(row.callsOverThirdSek)

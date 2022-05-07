@@ -6,7 +6,8 @@ import React from "react"
 import { getAllSheets } from "../redux/reducers/sheets-reducer"
 import CustomPaginationActionsTable from "./Table/Table.jsx"
 const mapStateToProps = (state) => {
-   
+ 
+
     return {
         allRows: state.sheets.showRows,
         currentManager: state.currentManager
