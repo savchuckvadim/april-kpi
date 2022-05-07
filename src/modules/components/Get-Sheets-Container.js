@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
     return {
         allRows: state.sheets.showRows,
-        currentManager: state.currentManager
+        currentManager: state.sheets.currentManager
     }
 }
 class GetSheetsContainer extends React.Component{

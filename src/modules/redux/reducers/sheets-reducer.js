@@ -5,9 +5,7 @@ import {
 const ALL_SHEETS = 'ALL_SHEETS'
 const SET_MANAGERS = 'SET_MANAGERS'
 const CHANGE_MANAGER = 'CHANGE_MANAGER';
-
 const CHANGE_DATE_FROM = 'CHANGE_DATE_FROM'
-
 const CHANGE_DATE_TO = 'CHANGE_DATE_TO'
 
 
@@ -16,6 +14,7 @@ let initialState = {
     allRows: [],
     showRows: [],
     managers: [],
+    currentManager:'',
     dateFrom: ''
 }
 
@@ -33,9 +32,18 @@ const setManagers = (managers) => {
         managers: managers
     }
 }
+
+export const changeManager = (manager) => {
+    
+    return {
+        type: CHANGE_MANAGER,
+        manager: manager
+    }
+}
+
 export const changeDateFrom = (date) => {
 
-    return{
+    return {
         type: CHANGE_DATE_FROM,
         date
     }
@@ -49,7 +57,18 @@ const sheetsReducer = (state = initialState, action) => {
                 ...state
             }
             result.allRows = action.allRows
-            result.showRows = action.allRows
+            result.showRows = action.allRows.map(row => {
+                row.date = new Date(row.date)
+                row.numberSets = Number(row.numberSets)
+                row.callsOverThirdSek = Number(row.callsOverThirdSek)
+                row.appointment = Number(row.appointment)
+                row.appointment = Number(row.appointment)
+                row.carried = Number(row.carried)
+                row.checks = Number(row.checks)
+                row.sales = Number(row.sales)
+                return row
+                // row.date
+            })
             return result
         case SET_MANAGERS:
             result = {
@@ -71,6 +90,7 @@ const sheetsReducer = (state = initialState, action) => {
                     }
                 })
 
+                result.currentManager = action.manager 
             } else {
                 result.showRows = result.allRows
             }
@@ -81,8 +101,12 @@ const sheetsReducer = (state = initialState, action) => {
             result = {
                 ...state
             }
-            result.showRows = state.showRows.filter(row => row.date > action.date)
             debugger
+            if(state.currentManager){
+
+            }
+            result.showRows = state.showRows.filter(row => row.date > new Date(action.date))
+         
             return result
 
 

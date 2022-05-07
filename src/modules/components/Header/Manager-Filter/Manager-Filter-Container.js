@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
-import { changeManager } from "../../../redux/reducers/current-manager-reducer"
-import { getAllSheets } from "../../../redux/reducers/sheets-reducer"
+import { changeManager } from "../../../redux/reducers/sheets-reducer"
 import ManagerFilter from "./Manager-Filter"
 
 const mapStateToProps = (state) => {
@@ -14,7 +13,7 @@ const mapStateToProps = (state) => {
 
 
  const ManagerFilterContainer = connect(mapStateToProps, {
-    changeManager
+    changeManager:changeManager
 })(ManagerFilter)
 
 export default ManagerFilterContainer
