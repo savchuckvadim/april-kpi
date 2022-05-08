@@ -12,19 +12,19 @@ const Statistics = (props) => {
                     <div><p>наборов номера: {props.avargeNumberSets} звонков в день </p> </div>
                     <div><p>звонки 30 сек. и более: {props.avargeCallsOverThirdSek} звонков в день</p></div>
                     <div><p>назначенных презентаций: {props.avargeAppointment} презентаций в день </p></div>
-                    <div><p>проведенных презентаци: {props.avargeCarried} презентаций в день </p></div>
+                    <div><p>проведенных презентаций: {props.avargeCarried} презентаций в день </p></div>
                     <div><p>счета: {props.avargeChecks} счетов в день в день </p></div>
                     
                 </div>
 
                 <div className='conversion'>
                     <h2>Конверсия %:</h2>
-                    <div><p>н</p></div>
-                    <div><p>звонки 30 сек. и более</p></div>
-                    <div><p>назначенных презентаци</p></div>
-                    <div><p>проведенных презентаци</p></div>
-                    <div><p>счета</p></div>
-                    <div><p>продажи</p></div>
+                    {/* <div><p>н</p></div> */}
+                    <div><p>звонки 30 сек. и более: {props.conversionCallsOverThirdSek} % </p></div>
+                    <div><p>назначенных презентаций: {props.conversionAppointment} % </p></div>
+                    <div><p>проведенных презентаций: {props.conversionCarried} % </p></div>
+                    <div><p>счета: {props.conversionChecks} %</p></div>
+                    <div><p>продажи: {props.conversionSales} % </p></div>
                 </div>
             </div>
 

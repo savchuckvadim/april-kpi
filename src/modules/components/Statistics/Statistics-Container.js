@@ -46,18 +46,18 @@ const mapStateToProps = (state) => {
         })
         period =[...new Set(rows.map(row => row.date.toLocaleDateString()))].length
      
-        avargeNumberSets = Math.round(numberSets / rows.length)
-        avargeCallsOverThirdSek = Math.round(callsOverThirdSek / rows.length)
-        avargeAppointment = Math.round(appointment / rows.length)
-        avargeCarried = Math.round(carried / rows.length)
-        avargeChecks = Math.round(checks / rows.length)
-        avargeSales = Math.round(sales / rows.length)
+        avargeNumberSets = Math.round(numberSets / period)
+        avargeCallsOverThirdSek = Math.round(callsOverThirdSek / period)
+        avargeAppointment = Math.round(appointment / period)
+        avargeCarried = Math.round(carried / period)
+        avargeChecks = Math.round(checks / period)
+        avargeSales = Math.round(sales / period)
 
-        conversionCallsOverThirdSek = 0
-        conversionAppointment = 0
-        conversionCarried = 0
-        conversionChecks = 0
-        conversionSales = 0
+        conversionCallsOverThirdSek = Math.round(callsOverThirdSek/numberSets*100)
+        conversionAppointment = Math.round(appointment/callsOverThirdSek*100)
+        conversionCarried = Math.round(carried/appointment*100)
+        conversionChecks =  Math.round(checks/carried*100)
+        conversionSales = Math.round(sales/checks*100)
     }
 
 
@@ -72,7 +72,16 @@ const mapStateToProps = (state) => {
         avargeAppointment,
         avargeCarried,
         avargeChecks,
-        avargeSales
+        avargeSales,
+
+        conversionCallsOverThirdSek,
+        conversionAppointment,
+
+        conversionCarried,
+        conversionChecks,
+        conversionSales
+
+
     }
 }
 
