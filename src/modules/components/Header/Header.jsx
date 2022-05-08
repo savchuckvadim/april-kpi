@@ -1,5 +1,5 @@
 
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.svg';
 import '../../../App.css';
 import './Header.css'
 import ManagerFilterContainer from './Manager-Filter/Manager-Filter-Container';
