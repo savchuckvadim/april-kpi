@@ -7,4 +7,6 @@
 }
 .statistics-button{
     min-height: 54px !important;
+    min-width: 330px !important;
+    padding: 0px !important;
 }

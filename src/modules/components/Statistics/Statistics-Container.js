@@ -4,6 +4,7 @@ import Statistics from "./Statistics"
 const mapStateToProps = (state) => {
 
     let rows = state.sheets.showRows
+    let period = 0
     let dates = ''
     let managers = ''
 
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => {
         по ${rows[rows.length - 1].date.toLocaleDateString()} `
 
         managers = [...new Set(rows.map(row => (row.manager)))].join(', ')
-
+        
         rows.forEach(row => {
             numberSets += row.numberSets
             callsOverThirdSek += row.callsOverThirdSek
@@ -43,19 +44,26 @@ const mapStateToProps = (state) => {
             checks += row.checks
             sales += row.sales
         })
+        period =[...new Set(rows.map(row => row.date.toLocaleDateString()))].length
+     
+        avargeNumberSets = Math.round(numberSets / rows.length)
+        avargeCallsOverThirdSek = Math.round(callsOverThirdSek / rows.length)
+        avargeAppointment = Math.round(appointment / rows.length)
+        avargeCarried = Math.round(carried / rows.length)
+        avargeChecks = Math.round(checks / rows.length)
+        avargeSales = Math.round(sales / rows.length)
 
-        avargeNumberSets = Math.round(numberSets/rows.length)
-        avargeCallsOverThirdSek = Math.round(callsOverThirdSek/rows.length)
-        avargeAppointment = Math.round(appointment/rows.length)
-        avargeCarried = Math.round(carried/rows.length)
-        avargeChecks = Math.round(checks/rows.length)
-        avargeSales = Math.round(sales/rows.length)
-
+        conversionCallsOverThirdSek = 0
+        conversionAppointment = 0
+        conversionCarried = 0
+        conversionChecks = 0
+        conversionSales = 0
     }
 
 
 
     return {
+        period:period,
         showRows: state.sheets.showRows,
         dates: dates,
         managers: managers,
