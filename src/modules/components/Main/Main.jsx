@@ -1,5 +1,5 @@
 import GetSheetsContainer from "../Get-Sheets-Container"
-import Statistics from "../Statistics/Statistics"
+import StatisticsContainer from "../Statistics/Statistics-Container"
 
 
 const Main = (props) => {
@@ -7,7 +7,7 @@ const Main = (props) => {
         return (
             <>
 
-                <Statistics />
+                <StatisticsContainer />
             </>
         )
     } else {

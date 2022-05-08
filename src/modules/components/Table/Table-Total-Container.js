@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
             numberSets += row.numberSets
             callsOverThirdSek += row.callsOverThirdSek
             appointment += row.appointment
-            appointment += row.appointment
+           
             carried += row.carried
             checks += row.checks
             sales += row.sales
