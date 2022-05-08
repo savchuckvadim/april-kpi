@@ -1,8 +1,8 @@
 .total-table{
     position: sticky !important;
     bottom: 0 !important;
-    background-color: rgb(43, 36, 83) !important;
-    color: white !important;
+    background-color: #282c34;
+    color: white;
     max-height: 110px;
 }
 
