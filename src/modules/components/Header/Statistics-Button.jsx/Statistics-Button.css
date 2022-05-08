@@ -1,0 +1,10 @@
+
+.btn-container{
+    margin-left: 10px;
+    padding: 0;
+    /* min-width: 900px; */
+    min-height: 100%;
+}
+.statistics-button{
+    min-height: 54px !important;
+}

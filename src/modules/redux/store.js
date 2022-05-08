@@ -6,15 +6,15 @@ import {
 import ThunkMiddleware from 'redux-thunk';
 import sheetsReducer from "./reducers/sheets-reducer";
 import { configureStore } from '@reduxjs/toolkit'
-import filterManagerReducer from "./reducers/current-manager-reducer";
+import statisticsReducer from "./reducers/statistics-reducer";
+
 
 // const customizedMiddleware = getDefaultMiddleware ({
 //     serializableCheck: false
 //   })
 const reducers = combineReducers({
-    
     sheets: sheetsReducer,
-    currentManager: filterManagerReducer
+    statistics: statisticsReducer   
 })
 
 // let store = configureStore({reducer: reducers}, applyMiddleware(ThunkMiddleware));
