@@ -5,8 +5,6 @@ const StatisticsButton = (props) => {
 
     return (
 
-        //   <Button variant="text">Text</Button>
-        //   <Button variant="contained">Contained</Button>
         <div className='btn-container'>
             <Button
                 onClick={props.changeStatistics}

@@ -1,5 +1,5 @@
 import {
-    applyMiddleware,
+    
     combineReducers,
 } from "redux";
 

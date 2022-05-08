@@ -3,13 +3,22 @@ import Statistics from "../Statistics/Statistics"
 
 
 const Main = (props) => {
+    if (props.statistics) {
+        return (
+            <>
 
-    return (
-        <>
-            <GetSheetsContainer />
-            <Statistics />
-        </>
-    )
+                <Statistics />
+            </>
+        )
+    } else {
+        return (
+            <>
+                <GetSheetsContainer />
+                <Statistics />
+            </>
+        )
+    }
+
 }
 
 export default Main
