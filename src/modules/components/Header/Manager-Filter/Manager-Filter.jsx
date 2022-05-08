@@ -13,7 +13,7 @@ export default function ManagerFilter(props) {
       sx={{ width: 300 }}
       onChange={(e, value) => { 
       
-        props.manager(props.dateFrom, value)
+        props.changeManager(value, props.dateFrom, props.dateTo)
        }}
       renderInput={(params) => <TextField
         

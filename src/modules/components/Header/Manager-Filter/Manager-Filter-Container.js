@@ -1,32 +1,23 @@
 import { connect } from "react-redux"
-import { changeDateFrom, changeManager } from "../../../redux/reducers/sheets-reducer"
+import { changeFilter} from "../../../redux/reducers/sheets-reducer"
 import ManagerFilter from "./Manager-Filter"
 
 const mapStateToProps = (state) => {
 
     return {
         managers: state.sheets.managers,
-        dateFrom: state.sheets.dateFrom
+        dateFrom: state.sheets.dateFrom,
+        dateTo: state.sheets.dateTo
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    const manager = (date, currentManager) => {
-
-        if(date){
-            const managerAction = changeManager(currentManager)
-            const dateAction = changeDateFrom (date)
-            dispatch(managerAction)
-            dispatch(dateAction)
-        }else{
-            const managerAction = changeManager(currentManager)
-           
-            dispatch(managerAction)
-            
-        }
+    const  changeManager = (currentManager, dateFrom, dateTo) => {
+            const action = changeFilter(currentManager, dateFrom, dateTo)  
+            dispatch(action)
     }
     return {
-        manager: manager
+        changeManager: changeManager
     }
 }
 

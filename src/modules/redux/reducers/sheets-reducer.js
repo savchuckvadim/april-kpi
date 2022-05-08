@@ -4,18 +4,16 @@ import {
 
 const ALL_SHEETS = 'ALL_SHEETS'
 const SET_MANAGERS = 'SET_MANAGERS'
-const CHANGE_MANAGER = 'CHANGE_MANAGER';
-const CHANGE_DATE_FROM = 'CHANGE_DATE_FROM'
-const CHANGE_DATE_TO = 'CHANGE_DATE_TO'
-
+const CHANGE_FILTER = 'CHANGE_FILTER'
 
 
 let initialState = {
     allRows: [],
     showRows: [],
     managers: [],
-    currentManager:'',
-    dateFrom: ''
+    currentManager: '',
+    dateFrom: '',
+    dateTo: ''
 }
 
 const setAllSheets = (allRows) => {
@@ -32,22 +30,17 @@ const setManagers = (managers) => {
         managers: managers
     }
 }
+export const changeFilter = (manager, dateFrom, dateTo) => {
 
-export const changeManager = (manager) => {
-    
     return {
-        type: CHANGE_MANAGER,
-        manager: manager
+        type: CHANGE_FILTER,
+        manager,
+        dateFrom,
+        dateTo
+
     }
 }
 
-export const changeDateFrom = (date) => {
-
-    return {
-        type: CHANGE_DATE_FROM,
-        date
-    }
-}
 const sheetsReducer = (state = initialState, action) => {
 
     let result = state
@@ -76,29 +69,29 @@ const sheetsReducer = (state = initialState, action) => {
             }
             result.managers = action.managers
             return result
-        case CHANGE_MANAGER:
 
+        case CHANGE_FILTER:
+            result = {
+                ...state
+            }
+            
             if (action.manager) {
-                result = {
-                    ...state
-                }
+               
                 result.showRows = result.allRows.filter(row => row.manager === action.manager)
-                result.currentManager = action.manager 
+                result.currentManager = action.manager
 
             } else {
                 result.showRows = result.allRows
             }
 
-            return result
-
-        case CHANGE_DATE_FROM:
-            result = {
-                ...state
+            if (action.dateFrom) {
+                result.showRows = result.showRows.filter(row => row.date >= new Date(action.dateFrom))
+                result.dateFrom = new Date(action.dateFrom)
             }
-         
-            
-            result.showRows = state.showRows.filter(row => row.date > new Date(action.date))
-            result.dateFrom = new Date(action.date)
+            if (action.dateTo) {
+                result.showRows = result.showRows.filter(row => row.date <= new Date(action.dateTo))
+                result.dateTo = new Date(action.dateTo)
+            }
             return result
 
 
